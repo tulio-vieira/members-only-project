@@ -1,0 +1,21 @@
+<%- include header.ejs %>        
+
+        <div class="message-form login-form smaller">
+            <h1>Admin request</h1>
+            <p>The admin status enables the user to delete any message.</p>
+            <p>Provide the right secret to become an admin.</p>
+            
+            <form action="" method="POST">
+                <input name="adminSecret" type="text" required="true" class="single" placeholder="Secret">
+                <input class="submit-button" type="submit" value="Submit">
+            </form>
+
+            <% if (locals.error) { %> 
+
+                <div class="error"><i class="fa fa-times" aria-hidden="true"></i> <%= error %></div>
+    
+            <% } %>
+    
+        </div>
+
+<%- include footer.ejs %>

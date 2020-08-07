@@ -1,0 +1,306 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+}
+
+:root {
+    --nav-hover-color: #3f28c4;
+    --nav-padding: 10%;
+    --theme-color: #140c61;
+}
+
+body {
+    padding-bottom: 10rem;
+    position: relative;
+    margin: 0;
+    background: linear-gradient(to right, #3a7bd5, #3a6073);
+    min-height: 100vh;
+}
+
+.navbar {
+    padding: 0 var(--nav-padding);
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    background-color: var(--theme-color);
+    color: white;
+    width: 100%;
+}
+
+.brand-title {
+    font-weight: bold;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    max-width: 280px;
+    transition: all 0.2s;
+}
+
+.navbar a {
+    text-decoration: none;
+}
+
+.brand-title img {
+    width: 60px;
+    margin-right: 10px;
+}
+
+.navbar-links {
+    display: flex;
+}
+
+.navbar-links a {
+    display: flex;
+    align-items: center;
+    padding: 10px 1em;
+    transition: all 0.2s;
+    font-size: 0.9em;
+}
+
+.navbar-links a:hover {
+    background-color: var(--nav-hover-color);
+}
+
+.brand-title:hover {
+    background-color: var(--nav-hover-color);
+}
+
+.toggle-button {
+    position: absolute;
+    top: 0.4rem;
+    right: calc(var(--nav-padding) + 1rem);
+    display: none;
+    font-size: 2rem;
+}
+
+/* WRAPPER */
+
+.wrapper {
+    padding: 5rem 10% 0 10%;
+}
+
+/* MESSAGE OPTION */
+
+.message-option span {
+    margin-right: 3em;
+}
+
+.message-option {
+    margin-bottom: 15px;
+}
+
+/* MESSAGES */
+
+.message-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    grid-gap: 15px;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: break-word;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #424242;
+}
+
+.message-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.message-data {
+    color: #acacac;
+    font-size: 0.9em;
+    margin: 0.2em 0;
+}
+
+
+/* FOOTER */
+
+footer {
+    color: #acacac;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #09384c;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: small;
+}
+
+footer p {
+    margin: 1em 50px;
+}
+
+
+/* MESSAGE FORM */
+
+.message-form {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 700px;
+}
+
+.message-form form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+}
+
+.message-form input[type=text], .message-form textarea, .message-form input[type=password] {
+    color: white;
+    background-color: #424242;
+    margin: 0px;
+    padding: 20px;
+    border: none;
+    outline: none;
+    border-top: 1px solid #b0b0b0;
+}
+
+.message-form .submit-container {
+    background-color: #424242;
+    padding: 5px 20px 20px 0;
+}
+
+.message-form input[type=text] {
+    
+    font-size: 1.1rem;
+}
+
+.message-form textarea {
+    resize: none;
+}
+
+.message-form .last {
+    border-radius: 0 0 10px 10px;
+}
+.message-form form > :first-child {
+    border: none;
+    border-radius: 10px 10px 0 0;
+}
+
+.submit-button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #3a79cf;
+    padding: 15px;
+    border-radius: 5px;
+    max-width: 80px;
+    text-decoration: none;
+}
+
+.submit-button.gray {
+    background-color: #09384c;
+    margin-top: 1em;
+    display: block;
+}
+
+.message form {
+    margin: auto 0 0 auto;
+}
+
+.submit-button.delete {
+    background-color: red;
+    margin: auto 0 0 0;
+    align-self: flex-end;
+    font-size: 0.9em;
+}
+
+.message-form form .submit-button {
+    float: right;
+}
+
+.message-form form .single {
+    border-radius: 10px;
+}
+
+
+.error {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    background-color: rgba(245, 6, 6, 0.5);
+    border-radius: 7px;
+    padding: 10px;
+}
+
+
+/* LOGIN FORM */
+
+.login-form.message-form input {
+    font-size: 1rem;
+}
+
+.smaller.message-form {
+    max-width: 400px;
+}
+
+.login-form.message-form .submit-button {
+    background-color: #55b939;;
+    margin-top: 0.5rem;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* INSIGNIAS */
+.insignia-admin {
+    width: 1.5rem;
+    margin-bottom: -5px;
+}
+
+.insignia-member {
+    width: 1.6rem;
+    margin-bottom: -6px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 940px) {
+    :root {
+        --nav-padding: 5%;
+    }
+    
+    .message-container {
+        display: grid;
+        grid-template-columns: 100%;
+    }
+}
+
+@media (max-width: 750px) {
+
+    .brand-title {
+        max-width: 230px;
+    }
+    
+    .navbar {
+        flex-direction: column;
+    }
+
+    .toggle-button {
+        display: block;
+    }
+
+    .navbar-links {
+        display: none;
+    }
+
+    .navbar-links a {
+        justify-content: center;
+    }
+
+    .navbar-links.active {
+        display: flex;
+        flex-direction: column;
+    }
+}

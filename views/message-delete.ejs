@@ -1,0 +1,17 @@
+<%- include header.ejs %>
+
+    <div class="message-form small">
+        <h1>Delete Message</h1>
+        <p>Are you sure you want to delete this message?</p>
+        <div class="message">
+            <p class="message-title"><%= message.title %></p>
+            <p class="message-data">by <%= message.user.username %> · <%= message.date_formatted %></p>
+            <p class="message-content"><%= message.text %> </p>
+            <form action="/message/delete/<%= message.id %>" method='POST'>
+                <input type="hidden" name="messageId" value="<%= message.id %>" required="true">
+                <input type="submit" class="submit-button delete" value="Delete">
+            </form>
+        </div>
+    </div>
+
+<%- include footer.ejs %>

@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members Only</title>
+    <link rel="icon" href="/images/message.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <script src="/javascripts/toggle.js" defer></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a class="brand-title" href="/">
+            <img src="/images/message.svg" alt="" class="logo">
+            Members Only
+        </a>
+
+        <a href="#" class="toggle-button">☰</a>
+
+        <div class="navbar-links">
+            <% if(locals.currentUser) { %>
+                <a href="/message/create">New Message</a>
+                <% if(!locals.currentUser.admin) { %>
+                    <a href="/user/admin">Admin</a>
+                <% } %>
+                <% if(!locals.currentUser.member) { %>
+                    <a href="/user/membership">Membership</a>
+                <% } %>
+                <a href="/user">My account</a>
+                <a href="/user/logout">Log out</a>
+            <% } else { %>
+                <a href="/user/register">Register</a>
+                <a href="/user/login">Log in</a>
+            <% } %>
+            <a href="/about">About</a>
+        </div>
+    </nav>
+
+    <div class="wrapper">

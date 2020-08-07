@@ -1,0 +1,24 @@
+<%- include header.ejs %>
+        
+    <div class="message-form login-form smaller">
+        <h1>Login</h1>
+
+        <% if (messages.info) { %>
+            <p><%= messages.info %></p>
+        <% } %>
+
+        <form action="" method="POST">
+            <input name="username" required="true" type="text" placeholder="Username">
+            <input name="password" required="true" type="password" class="last" placeholder="Password">
+            <input class="submit-button" type="submit" value="Login">
+        </form>
+
+        <% if (messages.error) messages.error.forEach(errorString => { %>
+
+            <div class="error"><i class="fa fa-times" aria-hidden="true"></i> <%= errorString %></div>
+
+        <% }); %>
+
+    </div>
+
+<%- include footer.ejs %>

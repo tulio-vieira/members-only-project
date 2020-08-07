@@ -1,0 +1,22 @@
+<%- include header.ejs %>
+
+<!-- CHANGE VALUES -->
+
+    <div class="message-form">
+        <h1>New Message</h1>
+        <form action="/message/create" method="POST">
+            <input type="text" name="title" placeholder="Add title..." required="true" maxlength="50"
+                value="<%= locals.title %>">
+            <textarea name="text" id="" cols="40" rows="7" required="true" maxlength="500" placeholder="Your message..."><%= locals.text %></textarea>
+            <div class="submit-container last">
+                <input  class="submit-button" type="submit" value="Submit">
+            </div>
+        </form>
+
+        <% if (locals.errors) { locals.errors.forEach(error => { %>
+            <div class="error"><i class="fa fa-times" aria-hidden="true"></i> <%= error.msg %> </div>
+        <% }); } %>
+
+    </div>
+
+<%- include footer.ejs %>

@@ -1,0 +1,31 @@
+<%- include header.ejs %>
+
+    <h1>Account Info</h1>
+
+    <% if(locals.currentUser) { %>
+        <p>Username: <strong>     <%= locals.currentUser.username %></strong></p>
+        <p>Comments posted: <strong>    <%= locals.currentUser.message_count %></strong></p>
+        <p>Membership Status: 
+            <% if(locals.currentUser.member) { %>
+                <img class="insignia-member" src="/images/insignia.png" alt=""> VIP Member. You can see the authors and dates of the messages.
+            <% } else { %>
+                You are not a member. Click <a href="/user/membership">here</a> to request membership status.
+            <% } %> 
+        </p>
+        <p>Admin Status: 
+            <% if(locals.currentUser.admin) { %>
+                <img class="insignia-admin" src="/images/admin-insignia.svg" alt=""> Administrador. You can delete any message.
+            <% } else { %>
+                None. Click <a href="/user/admin">here</a> to request admin status.
+            <% } %> 
+        </p>
+
+    <% } else { %>
+        <p>No account information.</p>
+    <% } %>
+
+        <a href="/" class="submit-button gray">Home</a>
+    
+
+
+<%- include footer.ejs %>

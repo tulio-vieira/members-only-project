@@ -1,0 +1,47 @@
+<%- include header.ejs %>
+
+    <!-- IF THE USER IS NOT LOGGED IN, DISPLAY MESSAGE: Login here to post messages! -->
+
+    <div class="message-option">
+        <span><i class="fa fa-envelope-o" aria-hidden="true"></i> <%= locals.message_list.length %> </span>
+        <% if(locals.currentUser) { %>
+            <a href="/message/create" id="toggle-post"><i class="fa fa-angle-down" aria-hidden="true"></i> Write a message</a>
+        <% } else { %>
+            <span>Log in <a href="/user/login">here</a> to post a message!</span>
+        <% } %>
+    </div>
+
+    <div class="message-container">
+
+        <% if (locals.message_list) { %>
+
+            <% if(!locals.currentUser || !locals.currentUser.member) locals.message_list.forEach(element => { %>
+                <% element.user.username = "*****" %>
+            <% }); %>
+
+            <% for (let message of locals.message_list) { %>
+
+                <% if(!locals.currentUser || !locals.currentUser.member) { %>
+                    <% message.user.username = "*****" %>
+                <% } %>
+
+                <div class="message">
+                    <p class="message-title"><%= message.title %></p>
+                    <p class="message-data">by <%= message.user.username %> · <%= message.date_formatted %></p>
+                    <p class="message-content"><%= message.text %></p>
+
+                    <% if(locals.currentUser && locals.currentUser.admin) { %>
+                        <a href="/message/delete/<%= message.id %>" class="submit-button delete">Delete</a>
+                    <% } %>
+
+                </div>
+            <% } %>
+        <% } else { %>
+
+            <p>No messages.</p>
+            
+        <% } %>
+        
+    </div>
+
+<%- include footer.ejs %>

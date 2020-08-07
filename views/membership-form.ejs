@@ -1,0 +1,23 @@
+<%- include header.ejs %> 
+        
+    <div class="message-form login-form">
+        <h1>Membership request</h1>
+        <p>To acquire membership status and see the authors and dates of the messages, you need to provide a secret.</p>
+        <p>This website is a project for an open source webdeveloper curriculum. What is the name of this curriculum?</p>
+        
+        <form action="" method="POST">
+            <input name="membershipSecret" type="text" required="true" class="single" placeholder="Secret">
+            <input class="submit-button" type="submit" value="Submit">
+        </form>
+
+        <p>Hint: See the <a href="/about">about</a> page.</p>
+
+        <% if (locals.error) { %> 
+
+            <div class="error"><i class="fa fa-times" aria-hidden="true"></i> <%= error %></div>
+
+        <% } %>
+
+    </div>
+
+<%- include footer.ejs %>

@@ -1,0 +1,26 @@
+<%- include header.ejs %>
+
+    <div class="message-form login-form smaller">
+        <h1>Register</h1>
+        <!-- PUT REQUIRED IN THE FIELDS -->
+        <form action="" method="POST">
+            <input name="username" type="text" placeholder="Username" required="true" maxlength="50"
+                value="<%= locals.username %>">
+            <input name="password" type="password" id="password" onkeyup='check();' placeholder="Password" required="true" maxlength="50"
+                value="<%= locals.password %>">
+            <input name="password2" type="password" id="confirm-password" class="last" onkeyup='check();' placeholder="Confirm password" required="true" maxlength="50"
+                value="<%= locals.password2 %>">
+            <input class="submit-button" id="submit" type="submit" value="Register">
+        </form>
+        
+        <div style="display: none;" class="error" id="password-error"><i class="fa fa-times" aria-hidden="true"></i> Passwords must match</div>
+
+        <% if (locals.errors) { locals.errors.forEach(error => { %> 
+
+            <div class="error"><i class="fa fa-times" aria-hidden="true"></i> <%= error.msg %></div>
+
+        <% }); } %>
+
+    </div>
+
+<%- include footer.ejs %>
